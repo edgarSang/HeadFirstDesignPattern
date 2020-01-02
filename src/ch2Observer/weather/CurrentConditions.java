@@ -1,21 +1,22 @@
 
 package ch2Observer.weather;
 
+import java.util.Observable;
+
 import ch2Observer.Observer;
 import ch2Observer.Subject;
 
-public class CurrentConditions implements DisplayElements,Observer{
+public class CurrentConditions implements DisplayElements,java.util.Observer{
 	
 	//구지 생성자 맑도는 안쓰는데 왜 저장해야하지?, 나중에 탈퇴할때를 대비해서.
-	private Subject weatherData;
+	private Observable ob;
 	private float humidity;
 	private float temperature;
 	
 	
-	public CurrentConditions(Subject weatherData) {
-		this.weatherData = weatherData;
-		weatherData.registerObserver(this);
-		
+	public CurrentConditions(Observable ob) {
+		this.ob = ob;
+		ob.addObserver(this);
 	}
 	
 	
@@ -25,9 +26,8 @@ public class CurrentConditions implements DisplayElements,Observer{
 	}
 
 	@Override
-	public void update(float temp, float humidi, float pressure) {
-		this.temperature = temp;
-		this.humidity = humidi;
+	public void update(Observable obs, Object arg) {
+		
 	}
 
 }

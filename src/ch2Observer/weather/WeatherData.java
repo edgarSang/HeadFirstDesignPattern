@@ -19,10 +19,6 @@ public class WeatherData implements Subject{
 		observers = new ArrayList<Observer>();
 	}
 
-	@Override
-	public void notifyObserver() {
-		observers.stream().map(o -> o.update(temperature, humidity, pressure));
-	}
 	
 	float getTemp() {
 		return random.nextFloat();
@@ -41,6 +37,8 @@ public class WeatherData implements Subject{
 		notifyObserver();
 	}
 	
+
+
 	public void setMesuremetns() {
 		this.humidity = getHumidity();
 		this.pressure = getPressure();
@@ -59,5 +57,11 @@ public class WeatherData implements Subject{
 		if(i > -1) {
 			observers.remove(i);
 		}
+	}
+
+
+	@Override
+	public void notifyObserver() {
+		
 	}
 }
