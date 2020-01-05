@@ -11,7 +11,5 @@ public class PizzaStoreMain {
 		
 		pizza = indiaStore.orderPizza("boolgogi");
 		System.out.println("완성" + pizza.getName() + "\n");
-		
 	}
-
 }

@@ -1,17 +1,18 @@
 package ch4Factory;
 
-import java.util.ArrayList;
+import ch4Factory.ingredient.Boolgogi;
+import ch4Factory.ingredient.Cheese;
+import ch4Factory.ingredient.Dough;
+import ch4Factory.ingredient.Veggies;
 
 public abstract class Pizza {
 	String name;
-	ArrayList<String> toppings;
+	Dough dough;
+	Cheese cheese;
+	Boolgogi boolgogi;
+	Veggies veggies[];
 	
-	public void prepare() {
-		System.out.println("준비중 " + getName());
-		for (int i = 0; i < toppings.size(); i++) {
-			System.out.println("토핑추가 : "+ toppings.get(i));
-		}
-	}
+	public abstract void prepare();
 
 	public void bake() {
 		System.out.println("굽는중.....");
